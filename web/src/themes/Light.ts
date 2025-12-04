@@ -5,37 +5,6 @@ const Light = createTheme({
         icon: "#2aa2c1",
         loadingBar: "#2aa2c1",
     },
-    typography: {
-        fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
-        h1: {
-            fontWeight: 700,
-            fontSize: '2.25rem',
-            color: '#FFFFFF',
-        },
-        h2: {
-            fontWeight: 700,
-            fontSize: '1.5rem',
-            color: '#FFFFFF',
-        },
-        h5: {
-            fontWeight: 600,
-            fontSize: '1.25rem',
-            color: '#FFFFFF',
-        },
-        h6: {
-            fontWeight: 600,
-            fontSize: '1rem',
-            color: 'hsla(0, 0%, 100%, 0.74)',
-        },
-        body1: {
-            fontSize: '0.875rem',
-            color: 'hsla(0, 0%, 100%, 0.74)',
-        },
-        button: {
-            textTransform: 'none',
-            fontWeight: 600,
-        },
-    },
     palette: {
         action: {
             activatedOpacity: 0.12,
@@ -56,34 +25,11 @@ const Light = createTheme({
         },
         contrastThreshold: 3,
         divider: "#2f3d4d",
-        primary: {
-            main: "#2aa2c1",
-            light: "#3ab5d4",
-            dark: "#238a9f",
-            contrastText: "#ffffff",
-        },
-        secondary: {
-            main: "#2aa2c1",
-            light: "#3ab5d4",
-            dark: "#238a9f",
-            contrastText: "#ffffff",
-        },
         error: {
             contrastText: "#ffffff",
             dark: "#991b1b",
             light: "#ff6b6b",
             main: "#dc3545",
-        },
-        success: {
-            contrastText: "#ffffff",
-            dark: "#2d8659",
-            light: "#4aba7f",
-            main: "#30a46c",
-        },
-        text: {
-            primary: "hsla(0, 0%, 100%, 0.74)",
-            secondary: "hsla(0, 0%, 100%, 0.51)",
-            disabled: "hsla(0, 0%, 100%, 0.38)",
         },
         grey: {
             "100": "#f5f5f5",
@@ -107,14 +53,68 @@ const Light = createTheme({
             light: "#64b5f6",
             main: "#2196f3",
         },
+        mode: "dark",
+        primary: {
+            contrastText: "#ffffff",
+            dark: "#238a9f",
+            light: "#3ab5d4",
+            main: "#2aa2c1",
+        },
+        secondary: {
+            contrastText: "#ffffff",
+            dark: "#238a9f",
+            light: "#3ab5d4",
+            main: "#2aa2c1",
+        },
+        success: {
+            contrastText: "#ffffff",
+            dark: "#2d8659",
+            light: "#4aba7f",
+            main: "#30a46c",
+        },
+        text: {
+            disabled: "hsla(0, 0%, 100%, 0.38)",
+            primary: "hsla(0, 0%, 100%, 0.74)",
+            secondary: "hsla(0, 0%, 100%, 0.51)",
+        },
+        tonalOffset: 0.2,
         warning: {
             contrastText: "#ffffff",
             dark: "#f57c00",
             light: "#ffb74d",
             main: "#ff9800",
         },
-        mode: "dark",
-        tonalOffset: 0.2,
+    },
+    typography: {
+        body1: {
+            color: "hsla(0, 0%, 100%, 0.74)",
+            fontSize: "0.875rem",
+        },
+        button: {
+            fontWeight: 600,
+            textTransform: "none",
+        },
+        fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+        h1: {
+            color: "#FFFFFF",
+            fontSize: "2.25rem",
+            fontWeight: 700,
+        },
+        h2: {
+            color: "#FFFFFF",
+            fontSize: "1.5rem",
+            fontWeight: 700,
+        },
+        h5: {
+            color: "#FFFFFF",
+            fontSize: "1.25rem",
+            fontWeight: 600,
+        },
+        h6: {
+            color: "hsla(0, 0%, 100%, 0.74)",
+            fontSize: "1rem",
+            fontWeight: 600,
+        },
     },
 });
 

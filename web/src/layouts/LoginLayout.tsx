@@ -3,8 +3,8 @@ import { ReactNode, useCallback, useEffect, useState } from "react";
 import { Box, Breakpoint, Container, Theme, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useTranslation } from "react-i18next";
-import { makeStyles } from "tss-react/mui";
 import { FiUser } from "react-icons/fi";
+import { makeStyles } from "tss-react/mui";
 
 import AppBarLoginPortal from "@components/AppBarLoginPortal";
 import Brand from "@components/Brand";
@@ -132,42 +132,42 @@ const useStyles = makeStyles()((theme: Theme) => ({
     },
     icon: {
         color: theme.custom.icon,
-        width: "72px",
         height: "72px",
         strokeWidth: "1.5",
+        width: "72px",
     },
     iconContainer: {
-        margin: theme.spacing(2),
+        alignItems: "center",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        margin: theme.spacing(2),
     },
     root: {
+        background: "transparent",
         minHeight: "90vh",
         textAlign: "center",
-        background: "transparent",
     },
     rootContainer: {
-        paddingLeft: 24,
-        paddingRight: 24,
+        animation: "fadeIn 0.6s ease-out",
+        backdropFilter: "blur(10px)",
         backgroundColor: "#1e2b39",
+        border: "1px solid #2f3d4d",
         borderRadius: "16px",
         boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
-        border: "1px solid #2f3d4d",
-        backdropFilter: "blur(10px)",
-        paddingTop: theme.spacing(3),
-        paddingBottom: theme.spacing(3),
-        animation: "fadeIn 0.6s ease-out",
         maxWidth: "440px !important",
+        paddingBottom: theme.spacing(3),
+        paddingLeft: 24,
+        paddingRight: 24,
+        paddingTop: theme.spacing(3),
     },
     subtitle: {
         color: theme.palette.text.secondary,
         fontSize: "0.95rem",
     },
     title: {
-        fontWeight: 600,
-        fontSize: "1.75rem",
         color: theme.palette.text.primary,
+        fontSize: "1.75rem",
+        fontWeight: 600,
         marginBottom: theme.spacing(1),
     },
     welcomeHeading: {

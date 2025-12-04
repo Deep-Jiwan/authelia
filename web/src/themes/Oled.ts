@@ -55,10 +55,10 @@ const Oled = createTheme({
         },
         mode: "dark",
         primary: {
-            main: "#2aa2c1",
+            contrastText: "#ffffff",
             dark: "#238a9f",
             light: "#64b5f6",
-            contrastText: "#ffffff",
+            main: "#2aa2c1",
         },
         secondary: {
             contrastText: "#ffffff",

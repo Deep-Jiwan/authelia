@@ -11,15 +11,17 @@ export interface Props {
 
 const NotificationBar = function (props: Props) {
     const { notification } = useNotifications();
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(!!notification);
 
     useEffect(() => {
         if (notification) {
-            setVisible(true);
-            const timer = setTimeout(() => {
-                setVisible(false);
-                setTimeout(() => props.onClose(), 250);
-            }, notification.timeout * 1000 || 3000);
+            const timer = setTimeout(
+                () => {
+                    setVisible(false);
+                    setTimeout(() => props.onClose(), 250);
+                },
+                notification.timeout * 1000 || 3000,
+            );
 
             return () => clearTimeout(timer);
         }
@@ -65,29 +67,29 @@ const NotificationBar = function (props: Props) {
     return (
         <Box
             sx={{
-                position: "fixed",
-                top: "8rem",
-                right: "2.5rem",
-                zIndex: 9999,
                 pointerEvents: "none",
+                position: "fixed",
+                right: "2.5rem",
+                top: "8rem",
+                zIndex: 9999,
             }}
         >
             <Box
                 sx={{
-                    pointerEvents: "auto",
-                    maxWidth: "20rem",
-                    width: "auto",
+                    alignItems: "flex-start",
                     background: "#1e2b39",
                     border: `1px solid ${colors.border}`,
                     borderRadius: "0.5rem",
-                    padding: "1rem",
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "0.75rem",
                     boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                    display: "flex",
+                    gap: "0.75rem",
+                    maxWidth: "20rem",
                     opacity: visible ? 1 : 0,
+                    padding: "1rem",
+                    pointerEvents: "auto",
                     transform: visible ? "translateY(0)" : "translateY(-4px)",
                     transition: "opacity 200ms ease-in-out, transform 200ms ease-in-out",
+                    width: "auto",
                 }}
             >
                 <Box
@@ -101,8 +103,8 @@ const NotificationBar = function (props: Props) {
                 </Box>
                 <Box
                     sx={{
-                        flex: 1,
                         color: "hsla(0, 0%, 100%, 0.74)",
+                        flex: 1,
                         fontSize: "0.875rem",
                         lineHeight: 1.5,
                         wordBreak: "break-word",
@@ -118,7 +120,7 @@ const NotificationBar = function (props: Props) {
 export default NotificationBar;
 
 <style>
-{`
+    {`
 .w-5 {
   width: 1.25rem;
   height: 1.25rem;
@@ -128,4 +130,4 @@ export default NotificationBar;
   height: 1.25rem;
 }
 `}
-</style>
+</style>;

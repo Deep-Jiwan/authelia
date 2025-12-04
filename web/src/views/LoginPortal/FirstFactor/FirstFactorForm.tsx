@@ -261,18 +261,18 @@ const FirstFactorForm = function (props: Props) {
                             autoComplete="username"
                             onKeyDown={handleUsernameKeyDown}
                             sx={{
-                                '& .MuiOutlinedInput-root': {
-                                    borderRadius: '8px',
-                                    transition: 'all 0.3s ease-in-out',
-                                    '&:hover fieldset': {
-                                        borderColor: 'primary.main',
-                                    },
-                                    '&.Mui-focused fieldset': {
-                                        borderWidth: '2px',
-                                    },
+                                "& .MuiInputLabel-root": {
+                                    fontSize: "0.95rem",
                                 },
-                                '& .MuiInputLabel-root': {
-                                    fontSize: '0.95rem',
+                                "& .MuiOutlinedInput-root": {
+                                    "&:hover fieldset": {
+                                        borderColor: "primary.main",
+                                    },
+                                    "&.Mui-focused fieldset": {
+                                        borderWidth: "2px",
+                                    },
+                                    borderRadius: "8px",
+                                    transition: "all 0.3s ease-in-out",
                                 },
                             }}
                         />
@@ -295,18 +295,18 @@ const FirstFactorForm = function (props: Props) {
                             onKeyDown={handlePasswordKeyDown}
                             onKeyUp={handlePasswordKeyUp}
                             sx={{
-                                '& .MuiOutlinedInput-root': {
-                                    borderRadius: '8px',
-                                    transition: 'all 0.3s ease-in-out',
-                                    '&:hover fieldset': {
-                                        borderColor: 'primary.main',
-                                    },
-                                    '&.Mui-focused fieldset': {
-                                        borderWidth: '2px',
-                                    },
+                                "& .MuiInputLabel-root": {
+                                    fontSize: "0.95rem",
                                 },
-                                '& .MuiInputLabel-root': {
-                                    fontSize: '0.95rem',
+                                "& .MuiOutlinedInput-root": {
+                                    "&:hover fieldset": {
+                                        borderColor: "primary.main",
+                                    },
+                                    "&.Mui-focused fieldset": {
+                                        borderWidth: "2px",
+                                    },
+                                    borderRadius: "8px",
+                                    transition: "all 0.3s ease-in-out",
                                 },
                             }}
                             slotProps={{
@@ -383,17 +383,17 @@ const FirstFactorForm = function (props: Props) {
                             disabled={disabled}
                             onClick={handleSignIn}
                             sx={{
-                                height: '48px',
-                                borderRadius: '8px',
-                                fontSize: '1rem',
-                                fontWeight: 600,
-                                textTransform: 'none',
-                                boxShadow: 'none',
-                                transition: 'background-color 0.2s ease-in-out',
-                                '&:hover': {
-                                    boxShadow: 'none',
-                                    backgroundColor: '#238a9f',
+                                "&:hover": {
+                                    backgroundColor: "#238a9f",
+                                    boxShadow: "none",
                                 },
+                                borderRadius: "8px",
+                                boxShadow: "none",
+                                fontSize: "1rem",
+                                fontWeight: 600,
+                                height: "48px",
+                                textTransform: "none",
+                                transition: "background-color 0.2s ease-in-out",
                             }}
                         >
                             {translate("Sign in to continue")}
@@ -443,24 +443,24 @@ const useStyles = makeStyles()((theme: Theme) => ({
         justifyContent: "flex-end",
     },
     rememberMe: {
-        flexGrow: 1,
         "& .MuiFormControlLabel-label": {
-            fontSize: "0.9rem",
             color: theme.palette.text.secondary,
+            fontSize: "0.9rem",
         },
+        flexGrow: 1,
     },
     resetLink: {
-        cursor: "pointer",
-        paddingBottom: 13.5,
-        paddingTop: 13.5,
-        fontSize: "0.9rem",
-        fontWeight: 600,
-        color: theme.palette.primary.main,
-        transition: "all 0.2s ease-in-out",
         "&:hover": {
             color: theme.palette.primary.dark,
             textDecoration: "none",
         },
+        color: theme.palette.primary.main,
+        cursor: "pointer",
+        fontSize: "0.9rem",
+        fontWeight: 600,
+        paddingBottom: 13.5,
+        paddingTop: 13.5,
+        transition: "all 0.2s ease-in-out",
     },
 }));
 
