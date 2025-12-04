@@ -1,11 +1,11 @@
 import { ReactNode, useCallback, useEffect, useState } from "react";
 
-import { Box, Breakpoint, Container, Theme } from "@mui/material";
+import { Box, Breakpoint, Container, Theme, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useTranslation } from "react-i18next";
+import { FiUser } from "react-icons/fi";
 import { makeStyles } from "tss-react/mui";
 
-import UserSvg from "@assets/images/user.svg?react";
 import AppBarLoginPortal from "@components/AppBarLoginPortal";
 import Brand from "@components/Brand";
 import PrivacyPolicyDrawer from "@components/PrivacyPolicyDrawer";
@@ -39,7 +39,9 @@ const LoginLayout = function (props: Props) {
     const logo = getLogoOverride() ? (
         <Box component={"img"} src="./static/media/logo.png" alt="Logo" className={classes.icon} />
     ) : (
-        <UserSvg className={classes.icon} />
+        <Box className={classes.iconContainer}>
+            <FiUser className={classes.icon} />
+        </Box>
     );
 
     const handleChangeLanguage = (locale: string) => {
@@ -86,6 +88,11 @@ const LoginLayout = function (props: Props) {
             >
                 <Container maxWidth={props.maxWidth ?? "xs"} className={classes.rootContainer}>
                     <Grid container>
+                        <Grid size={{ xs: 12 }}>
+                            <Typography variant="h5" className={classes.welcomeHeading}>
+                                Welcome to Adgone
+                            </Typography>
+                        </Grid>
                         <Grid size={{ xs: 12 }}>{logo}</Grid>
                         {props.title ? (
                             <Grid size={{ xs: 12 }} maxWidth={"xs"}>
@@ -119,25 +126,63 @@ const LoginLayout = function (props: Props) {
 
 const useStyles = makeStyles()((theme: Theme) => ({
     body: {
-        marginTop: theme.spacing(),
-        paddingBottom: theme.spacing(),
-        paddingTop: theme.spacing(),
+        marginTop: theme.spacing(2),
+        paddingBottom: theme.spacing(1),
+        paddingTop: theme.spacing(1),
     },
     icon: {
-        fill: theme.custom.icon,
-        margin: theme.spacing(),
-        width: "64px",
+        color: theme.custom.icon,
+        height: "72px",
+        strokeWidth: "1.5",
+        width: "72px",
+    },
+    iconContainer: {
+        alignItems: "center",
+        display: "flex",
+        justifyContent: "center",
+        margin: theme.spacing(2),
     },
     root: {
+        background: "transparent",
         minHeight: "90vh",
         textAlign: "center",
     },
     rootContainer: {
-        paddingLeft: 32,
-        paddingRight: 32,
+        animation: "fadeIn 0.6s ease-out",
+        backdropFilter: "blur(10px)",
+        backgroundColor: "#1e2b39",
+        border: "1px solid #2f3d4d",
+        borderRadius: "16px",
+        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
+        maxWidth: "440px !important",
+        paddingBottom: theme.spacing(3),
+        paddingLeft: 24,
+        paddingRight: 24,
+        paddingTop: theme.spacing(3),
     },
-    subtitle: {},
-    title: {},
+    subtitle: {
+        color: theme.palette.text.secondary,
+        fontSize: "0.95rem",
+    },
+    title: {
+        color: theme.palette.text.primary,
+        fontSize: "1.75rem",
+        fontWeight: 600,
+        marginBottom: theme.spacing(1),
+    },
+    welcomeHeading: {
+        color: "#FFFFFF",
+        fontSize: "1.5rem",
+        fontWeight: 700,
+        marginBottom: theme.spacing(0.5),
+        marginTop: theme.spacing(1),
+    },
+    welcomeSubtitle: {
+        color: theme.palette.text.primary,
+        fontSize: "0.875rem",
+        fontWeight: 400,
+        marginBottom: theme.spacing(1),
+    },
 }));
 
 export default LoginLayout;

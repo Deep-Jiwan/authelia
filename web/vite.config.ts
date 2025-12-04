@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd());
     const allowedHosts = env.VITE_ALLOWED_HOSTS ? env.VITE_ALLOWED_HOSTS.split(",") : [];
     const isCoverage = process.env.VITE_COVERAGE === "true";
+    const isProduction = mode === "production" || process.env.NODE_ENV === "production";
     const sourcemap = isCoverage ? "inline" : undefined;
 
     const istanbulPlugin = isCoverage
@@ -93,19 +94,37 @@ export default defineConfig(({ mode }) => {
             include: ["@emotion/react", "@emotion/styled"],
         },
         plugins: [
-            checkerPlugin({
-                eslint: { lintCommand: "eslint . --ext .js,.jsx,.ts,.tsx", useFlatConfig: true },
-                typescript: true,
-            }),
+            !isProduction &&
+                checkerPlugin({
+                    eslint: { lintCommand: "eslint . --ext .js,.jsx,.ts,.tsx", useFlatConfig: true },
+                    typescript: true,
+                }),
             istanbulPlugin,
             react(),
             svgr(),
             tsconfigPaths(),
         ],
         server: {
-            allowedHosts: ["login.example.com", ...allowedHosts],
+            allowedHosts: [
+                "login.example.com",
+                "adgpi0mox",
+                "auth-dev.adgone.co.tz",
+                "auth-dev-deep.adgone.co.tz",
+                ...allowedHosts,
+            ],
+            host: "0.0.0.0",
             open: false,
             port: 3000,
+            proxy: {
+                "/api": {
+                    changeOrigin: true,
+                    target: "http://192.168.88.248:9010",
+                },
+                "/locales": {
+                    changeOrigin: true,
+                    target: "http://192.168.88.248:9010",
+                },
+            },
         },
         test: {
             coverage: {

@@ -27,5 +27,29 @@ authelia-image-dev.tar
 
 /authelia
 __debug_bin
+cmd/dev/authelia
+cmd/dev/authelia-gen
+cmd/dev/authelia-scripts
+cmd/dev/authelia-suites
 
 internal/suites/common/pki/ca/*.private.pem
+
+# Local development files
+authelia.log
+db.sqlite3
+notifications.txt
+users_database.yml
+run-dev-docker.sh
+config.yml
+Dockerfile.build
+# Secrets directory
+secrets/
+
+
+# Development documentation
+CANNOT_MOVE_TO_THEME.md
+web/theme.md
+
+# Development/testing components
+web/src/components/ExampleThemeComponent.tsx
+frontend.dev.logsinternal/server/public_html/static/
